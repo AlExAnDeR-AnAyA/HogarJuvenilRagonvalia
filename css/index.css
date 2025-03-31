@@ -52,28 +52,72 @@ body {
     width: 180px;
     height: 180px;
 }
+/* Estilos del menú de navegación */
 nav {
-    background-image:url("../fondos/Imagen2.png"); /* Mismo color que .header */
+    background-image: url("../fondos/Imagen2.png"); /* Imagen de fondo */
     display: flex;
-    justify-content: center; /* Centra los enlaces */
-    padding: 15px 0; /* Espaciado superior e inferior */
-    gap: 20px; /* Espacio entre enlaces */
-   
+    justify-content: center;
+    padding: 15px 0;
+    gap: 20px;
 }
 
-nav a {
+/* Estilos de los enlaces principales y los del menú desplegable */
+nav a, .menu > a, .submenu a {
     color: white;
     font-family: 'Times New Roman', Times, serif;
-    text-decoration: none; /* Quita el subrayado */
+    text-decoration: none;
     padding: 10px 15px;
+    display: block;
     transition: background 0.3s, color 0.3s;
 }
 
-nav a:hover {
+/* Estilo al pasar el mouse */
+nav a:hover, .menu > a:hover {
     background-color: white;
-    color: #009236; /* Cambio de color al pasar el mouse */
-    border-radius: 5px; /* Bordes redondeados */
+    color: #009236;
+    border-radius: 5px;
 }
+
+/* Estilos del contenedor del menú */
+.menu {
+    position: relative;
+}
+
+/* Estilos del menú desplegable */
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    min-width: 250px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 5px 0;
+    z-index: 1000;
+}
+
+/* Estilos de los enlaces dentro del menú desplegable */
+.submenu a {
+    color: black;
+    padding: 10px;
+    display: block;
+    text-decoration: none;
+    font-family: 'Times New Roman', Times, serif;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* Efecto hover en los enlaces del menú desplegable */
+.submenu a:hover {
+    background-color: #009236;
+    color: white;
+}
+
+/* Mostrar la lista cuando se pasa el mouse */
+.menu:hover .submenu {
+    display: block;
+}
+
 .contenedor {
     width: 60%; /* Puedes ajustar el ancho según necesites */
     height: 500px; /* Ajusta la altura */
