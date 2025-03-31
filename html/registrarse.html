@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario</title>
+    <link rel="stylesheet" href="css\registrarse.css"> <!-- Archivo de estilos -->
+</head>
+<body>
+    <div class="form-container">
+        <h2>Registro de Usuario</h2>
+        <form id="registroForm" action="registro.php" method="POST" enctype="multipart/form-data">
+            <label for="nombre">Nombre Completo:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="tipoDocumento">Tipo de Documento:</label>
+            <select id="tipoDocumento" name="tipoDocumento" required>
+                <option value="">Seleccione...</option>
+                <option value="ti">Tarjeta de Identidad</option>
+                <option value="cc">Cédula de Ciudadanía</option>
+                <option value="ce">Cédula de Extranjería</option>
+                <option value="pr">Permiso de Residencia</option>
+            </select>
+
+            <label for="documento">Número de Documento:</label>
+            <input type="text" id="documento" name="documento" required>
+
+            <div id="acudienteContainer" style="display: none;">
+                <label for="acudiente">Nombre del Acudiente:</label>
+                <input type="text" id="acudiente" name="acudiente">
+
+                <label for="contactoAcudiente">Contacto del Acudiente:</label>
+                <input type="text" id="contactoAcudiente" name="contactoAcudiente">
+            </div>
+
+            <label for="correo">Correo Electrónico:</label>
+            <input type="email" id="correo" name="correo" required>
+            <label for="confirmarCorreo">Confirmar Correo:</label>
+            <input type="email" id="confirmarCorreo" name="confirmarCorreo" required>
+
+            <label for="clave">Contraseña:</label>
+            <input type="password" id="clave" name="clave" minlength="8" required>
+            <label for="confirmarClave">Confirmar Contraseña:</label>
+            <input type="password" id="confirmarClave" name="confirmarClave" minlength="8" required>
+
+            <label for="documentoPDF">Fotocopia del Documento (PDF):</label>
+            <input type="file" id="documentoPDF" name="documentoPDF" accept="application/pdf" required>
+
+            <div id="documentosAdicionales" style="display: none;">
+                <label for="documentoAcudiente">Fotocopia Documento Acudiente (PDF):</label>
+                <input type="file" id="documentoAcudiente" name="documentoAcudiente" accept="application/pdf">
+            </div>
+
+            <label for="sisben">Fotocopia del Sisbén (PDF):</label>
+            <input type="file" id="sisben" name="sisben" accept="application/pdf" required>
+
+            <label for="eps">Constancia de EPS (PDF):</label>
+            <input type="file" id="eps" name="eps" accept="application/pdf" required>
+
+            <div class="buttons">
+                <button type="submit">Registrar</button>
+                <button type="reset">Cancelar</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("tipoDocumento").addEventListener("change", function() {
+            let acudienteContainer = document.getElementById("acudienteContainer");
+            let documentosAdicionales = document.getElementById("documentosAdicionales");
+            if (this.value === "ti") {
+                acudienteContainer.style.display = "block";
+                documentosAdicionales.style.display = "block";
+            } else {
+                acudienteContainer.style.display = "none";
+                documentosAdicionales.style.display = "none";
+            }
+        });
+
+        document.getElementById("registroForm").addEventListener("submit", function(event) {
+            let correo = document.getElementById("correo").value;
+            let confirmarCorreo = document.getElementById("confirmarCorreo").value;
+            let clave = document.getElementById("clave").value;
+            let confirmarClave = document.getElementById("confirmarClave").value;
+
+            if (correo !== confirmarCorreo) {
+                alert("Los correos electrónicos no coinciden");
+                event.preventDefault();
+            }
+            if (clave !== confirmarClave) {
+                alert("Las contraseñas no coinciden");
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
