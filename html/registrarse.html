@@ -74,15 +74,17 @@
             <input type="email" id="confirmarCorreo" name="confirmarCorreo" required>
 
             <label for="clave">Contraseña:</label>
-            <div class="password-container">
-            <input type="password" id="clave" name="clave" minlength="8" required>
-            <button type="button" class="toggle-password" onclick="togglePassword()">👁</button>
-            </div>
+                <div class="password-container">
+                    <input type="password" id="clave" name="clave" minlength="8" required>
+                    <button type="button" class="toggle-password" onclick="togglePassword('clave')">👁</button>
+                </div>
+
             <label for="confirmarClave">Confirmar Contraseña:</label>
-            <div class="password-container">
-            <input type="password" id="confirmarClave" name="confirmarClave" minlength="8" required>
-            <button type="button" class="toggle-password" onclick="togglePassword()">👁</button>
-            </div>
+                <div class="password-container">
+                    <input type="password" id="confirmarClave" name="confirmarClave" minlength="8" required>
+                    <button type="button" class="toggle-password" onclick="togglePassword('confirmarClave')">👁</button>
+                </div>
+
 
             <label for="documentoPDF">Fotocopia del Documento (PDF):</label>
             <input type="file" id="documentoPDF" name="documentoPDF" accept="application/pdf" required>
@@ -105,8 +107,8 @@
         </form>
     </div>
 
-    <script src="js\registrarse.js"></script>
-    <script src="js\ver_contraseña.js"></script>
+    <script src="..//js\registrarse.js"></script>
+    <script src="..//js\verPassword.js"></script>
 
 
 </body>
