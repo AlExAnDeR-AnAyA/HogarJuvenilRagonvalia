@@ -206,3 +206,25 @@ button[type="reset"]:hover {
     color: red;
     border: 1px solid red;
 }
+
+/* Contenedor de la contraseña */
+.password-container {
+    position: relative;
+    width: 100%;
+}
+
+.password-container input {
+    width: 100%;
+    padding-right: 40px; /* Espacio para el botón */
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}

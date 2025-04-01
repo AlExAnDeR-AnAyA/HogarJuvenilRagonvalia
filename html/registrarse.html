@@ -74,9 +74,15 @@
             <input type="email" id="confirmarCorreo" name="confirmarCorreo" required>
 
             <label for="clave">Contraseña:</label>
+            <div class="password-container">
             <input type="password" id="clave" name="clave" minlength="8" required>
+            <button type="button" class="toggle-password" onclick="togglePassword()">👁</button>
+            </div>
             <label for="confirmarClave">Confirmar Contraseña:</label>
+            <div class="password-container">
             <input type="password" id="confirmarClave" name="confirmarClave" minlength="8" required>
+            <button type="button" class="toggle-password" onclick="togglePassword()">👁</button>
+            </div>
 
             <label for="documentoPDF">Fotocopia del Documento (PDF):</label>
             <input type="file" id="documentoPDF" name="documentoPDF" accept="application/pdf" required>
@@ -99,34 +105,9 @@
         </form>
     </div>
 
-    <script>
-        document.getElementById("tipoDocumento").addEventListener("change", function() {
-            let acudienteContainer = document.getElementById("acudienteContainer");
-            let documentosAdicionales = document.getElementById("documentosAdicionales");
-            if (this.value === "ti") {
-                acudienteContainer.style.display = "block";
-                documentosAdicionales.style.display = "block";
-            } else {
-                acudienteContainer.style.display = "none";
-                documentosAdicionales.style.display = "none";
-            }
-        });
+    <script src="js\registrarse.js"></script>
+    <script src="js\ver_contraseña.js"></script>
 
-        document.getElementById("registroForm").addEventListener("submit", function(event) {
-            let correo = document.getElementById("correo").value;
-            let confirmarCorreo = document.getElementById("confirmarCorreo").value;
-            let clave = document.getElementById("clave").value;
-            let confirmarClave = document.getElementById("confirmarClave").value;
 
-            if (correo !== confirmarCorreo) {
-                alert("Los correos electrónicos no coinciden");
-                event.preventDefault();
-            }
-            if (clave !== confirmarClave) {
-                alert("Las contraseñas no coinciden");
-                event.preventDefault();
-            }
-        });
-    </script>
 </body>
 </html>
